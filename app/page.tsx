@@ -1,5 +1,5 @@
  "use client";
-
+"v2" 
 import { Download, Mail, Phone, MapPin, Github, Code2, Smartphone, Gamepad2, Bot, Paintbrush, FileText, ExternalLink } from "lucide-react";
 import { useState, useEffect } from "react";
 
