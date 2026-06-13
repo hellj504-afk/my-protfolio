@@ -1,10 +1,11 @@
 "use client";
 
-import { Download, Mail, Phone, MapPin, Github, Code2, Smartphone, Gamepad2, Bot, Paintbrush, FileText, Layers, Server, Globe, Zap, Cpu, Send, Award, TrendingUp, Shield } from "lucide-react";
+import { Download, Mail, Phone, MapPin, Github, Code2, Smartphone, Gamepad2, Bot, Paintbrush, FileText, Layers, Server, Globe, Zap, Cpu, Send, Award, TrendingUp, Shield, X, Printer } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showCV, setShowCV] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -135,9 +136,9 @@ export default function Home() {
             </div>
 
             <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-              <a href="/Umair_CV.pdf" download style={{ padding: "12px 28px", backgroundColor: "#a855f7", borderRadius: "999px", textDecoration: "none", color: "white", display: "flex", alignItems: "center", gap: "8px" }}>
-                <Download size={18} /> Download CV
-              </a>
+              <button onClick={() => setShowCV(true)} style={{ padding: "12px 28px", backgroundColor: "#a855f7", borderRadius: "999px", border: "none", color: "white", display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }}>
+                <Download size={18} /> Download / Print CV
+              </button>
               <button onClick={openWhatsApp} style={{ padding: "12px 28px", backgroundColor: "#25D366", borderRadius: "999px", border: "none", color: "white", display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }}>
                 <Send size={18} /> WhatsApp Me
               </button>
@@ -300,11 +301,116 @@ export default function Home() {
         </footer>
       </div>
 
+      {/* CV Popup Modal */}
+      {showCV && (
+        <div style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0,0,0,0.95)",
+          zIndex: 1000,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          animation: "fadeIn 0.3s ease-in-out",
+          overflowY: "auto",
+          padding: "20px"
+        }}>
+          <div style={{
+            width: "100%",
+            maxWidth: "500px",
+            backgroundColor: "white",
+            borderRadius: "24px",
+            padding: "30px 24px",
+            textAlign: "center",
+            position: "relative",
+            animation: "slideUp 0.4s ease-in-out",
+            maxHeight: "90vh",
+            overflowY: "auto"
+          }}>
+            <button onClick={() => setShowCV(false)} style={{
+              position: "sticky",
+              top: "0",
+              float: "right",
+              background: "none",
+              border: "none",
+              fontSize: "28px",
+              cursor: "pointer",
+              color: "#333",
+              marginTop: "-10px"
+            }}>×</button>
+            
+            <div style={{ clear: "both" }} />
+            
+            <img src="/profile.png" alt="Muhammad Umair" style={{ width: "100px", height: "100px", borderRadius: "50%", marginBottom: "16px", border: "3px solid #a855f7" }} />
+            
+            <h1 style={{ color: "#1a1a2e", fontSize: "28px", marginBottom: "4px" }}>MUHAMMAD UMAIR</h1>
+            <p style={{ color: "#a855f7", fontWeight: "600", marginBottom: "16px" }}>Full Stack Developer · AI/ML Engineer · Game Architect</p>
+            
+            <div style={{ background: "#f5f5f5", padding: "12px", borderRadius: "12px", marginBottom: "20px" }}>
+              <p style={{ color: "#333", fontSize: "14px" }}>📞 03099988810 | 📧 jeeumair698@gmail.com</p>
+              <p style={{ color: "#333", fontSize: "14px" }}>📍 Lahore, Pakistan | 💼 4+ Years Experience</p>
+            </div>
+            
+            <div style={{ textAlign: "left", marginBottom: "20px" }}>
+              <h3 style={{ color: "#1a1a2e", borderBottom: "2px solid #a855f7", paddingBottom: "6px", marginBottom: "12px" }}>💻 Technical Skills</h3>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                {["HTML/CSS", "JavaScript", "React", "Node.js", "Python", "Flutter", "Unity", "Godot", "Android Studio", "CorelDRAW", "Photoshop", "ZE CAD"].map(skill => (
+                  <span key={skill} style={{ background: "#e9d5ff", color: "#6b21a5", padding: "4px 12px", borderRadius: "20px", fontSize: "12px" }}>{skill}</span>
+                ))}
+              </div>
+            </div>
+            
+            <div style={{ textAlign: "left", marginBottom: "20px" }}>
+              <h3 style={{ color: "#1a1a2e", borderBottom: "2px solid #a855f7", paddingBottom: "6px", marginBottom: "12px" }}>🏆 Professional Excellence</h3>
+              <ul style={{ color: "#444", fontSize: "13px", paddingLeft: "20px" }}>
+                <li>⚡ Works under pressure without compromising quality</li>
+                <li>🧠 Fast learner & multi-tool problem solver</li>
+                <li>📅 Deadline-driven with clean documentation</li>
+              </ul>
+            </div>
+            
+            <div style={{ display: "flex", gap: "12px", justifyContent: "center", marginTop: "20px" }}>
+              <button onClick={() => window.print()} style={{ padding: "12px 24px", background: "linear-gradient(135deg, #a855f7, #ec4899)", border: "none", borderRadius: "40px", color: "white", cursor: "pointer", display: "flex", alignItems: "center", gap: "8px", fontWeight: "bold" }}>
+                <Printer size={18} /> Print / Save as PDF
+              </button>
+              <button onClick={() => setShowCV(false)} style={{ padding: "12px 24px", backgroundColor: "#333", border: "none", borderRadius: "40px", color: "white", cursor: "pointer" }}>
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <style>{`
         @keyframes glowPulse {
           0% { opacity: 0.5; box-shadow: 0 0 5px #a855f7; }
           50% { opacity: 1; box-shadow: 0 0 20px #a855f7; }
           100% { opacity: 0.5; box-shadow: 0 0 5px #a855f7; }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes slideUp {
+          from { transform: translateY(50px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+        @media print {
+          body * {
+            visibility: hidden;
+          }
+          .cv-print, .cv-print * {
+            visibility: visible;
+          }
+          .cv-print {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+          }
         }
       `}</style>
     </div>
