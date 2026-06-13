@@ -49,24 +49,20 @@ export default function Home() {
 
   return (
     <div style={{ position: "relative", minHeight: "100vh" }}>
-      {/* Video Background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          zIndex: 0
-        }}
-      >
-        <source src="/bg.mp4" type="video/mp4" />
-      </video>
+      {/* 4K Still Image Background */}
+      <div style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        backgroundImage: "url('/bg.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+        backgroundRepeat: "no-repeat",
+        zIndex: 0
+      }} />
 
       {/* Dark Overlay for text readability */}
       <div style={{
@@ -75,7 +71,7 @@ export default function Home() {
         left: 0,
         width: "100%",
         height: "100%",
-        backgroundColor: "rgba(0,0,0,0.65)",
+        backgroundColor: "rgba(0,0,0,0.7)",
         zIndex: 1
       }} />
 
