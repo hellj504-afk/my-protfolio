@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, Mail, Phone, MapPin, Github, Code2, Smartphone, Gamepad2, Bot, Paintbrush, FileText } from "lucide-react";
+import { Download, Mail, Phone, MapPin, Github, Code2, Smartphone, Gamepad2, Bot, Paintbrush, FileText, Layers, Server, Globe, Lock, Zap, Cpu, Lightbulb, Send } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -11,6 +11,10 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const openWhatsApp = () => {
+    window.open("https://wa.me/923099988810", "_blank");
+  };
 
   const skills = [
     { name: "HTML/CSS", level: 90, icon: Code2 },
@@ -23,12 +27,31 @@ export default function Home() {
     { name: "CorelDRAW", level: 95, icon: Paintbrush },
     { name: "Photoshop", level: 90, icon: Paintbrush },
     { name: "Excel + AI", level: 88, icon: FileText },
-    { name: "ZE CAD", level: 92, icon: Code2 },
+    { name: "ZE CAD", level: 92, icon: Lightbulb },
     { name: "PowerPoint", level: 85, icon: FileText },
+    { name: "Python", level: 85, icon: Code2 },
+    { name: "Node.js", level: 82, icon: Server },
+    { name: "React", level: 88, icon: Globe },
+  ];
+
+  const techStack = [
+    { name: "HTML5", icon: Code2 },
+    { name: "CSS3", icon: Layers },
+    { name: "Python", icon: Code2 },
+    { name: "JavaScript", icon: Globe },
+    { name: "React", icon: Cpu },
+    { name: "Node.js", icon: Server },
+    { name: "Unity", icon: Gamepad2 },
+    { name: "ZE CAD", icon: Lightbulb },
   ];
 
   return (
-    <div style={{ backgroundColor: "black", color: "white", fontFamily: "sans-serif" }}>
+    <div style={{
+      background: "linear-gradient(135deg, #0a0a2a 0%, #1a1a3e 50%, #2d1b4e 100%)",
+      color: "white",
+      fontFamily: "sans-serif",
+      minHeight: "100vh"
+    }}>
 
       {/* Header */}
       <header style={{
@@ -37,8 +60,9 @@ export default function Home() {
         width: "100%",
         zIndex: 50,
         padding: "16px 24px",
-        backgroundColor: isScrolled ? "rgba(0,0,0,0.8)" : "transparent",
-        borderBottom: isScrolled ? "1px solid rgba(139,92,246,0.2)" : "none",
+        backgroundColor: isScrolled ? "rgba(0,0,0,0.7)" : "transparent",
+        backdropFilter: isScrolled ? "blur(10px)" : "none",
+        borderBottom: isScrolled ? "1px solid rgba(139,92,246,0.3)" : "none",
         transition: "all 0.3s"
       }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "16px" }}>
@@ -46,7 +70,7 @@ export default function Home() {
             MUHAMMAD UMAIR
           </span>
           <div style={{ display: "flex", gap: "24px", flexWrap: "wrap" }}>
-            {["About", "Skills", "Projects", "Experience", "Contact"].map(item => (
+            {["About", "Skills", "Tech", "Projects", "Experience", "Contact"].map(item => (
               <a key={item} href={`#${item.toLowerCase()}`} style={{ color: "#d1d5db", textDecoration: "none" }} onMouseEnter={e => e.currentTarget.style.color = "#a855f7"} onMouseLeave={e => e.currentTarget.style.color = "#d1d5db"}>
                 {item}
               </a>
@@ -58,7 +82,7 @@ export default function Home() {
       {/* Hero Section */}
       <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "80px 20px 40px" }}>
         <div>
-          {/* Profile Pic with Glowing Ring Behind */}
+          {/* Profile Pic - No Ring, Only Diamond Background */}
           <div style={{
             display: "flex",
             justifyContent: "center",
@@ -68,18 +92,18 @@ export default function Home() {
             height: "160px",
             margin: "0 auto 24px auto"
           }}>
-            {/* Glowing Ring Behind */}
+            {/* Purple Diamond Background */}
             <div style={{
               position: "absolute",
               top: "50%",
               left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: "180px",
-              height: "180px",
-              borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(168,85,247,0.4) 0%, rgba(168,85,247,0) 70%)",
-              animation: "pulse 2s ease-in-out infinite",
-              pointerEvents: "none"
+              transform: "translate(-50%, -50%) rotate(45deg)",
+              width: "200px",
+              height: "200px",
+              background: "linear-gradient(135deg, rgba(168,85,247,0.3), rgba(236,72,153,0.2))",
+              border: "2px solid rgba(168,85,247,0.5)",
+              boxShadow: "0 0 30px rgba(168,85,247,0.4)",
+              zIndex: 0
             }} />
             <img
               src="/profile.png"
@@ -99,21 +123,21 @@ export default function Home() {
           <h1 style={{ fontSize: "48px", fontWeight: "bold", marginBottom: "8px", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
             MUHAMMAD UMAIR
           </h1>
-          <p style={{ color: "#9ca3af", fontSize: "20px", marginBottom: "16px" }}>Web · Android · Games | Office + AI · Laser Engraving · Design</p>
-          <p style={{ color: "#6b7280", maxWidth: "600px", margin: "0 auto 32px" }}>I build web apps, Android apps, and games. I also streamline office work with AI tools and create precision laser engraving designs.</p>
+          <p style={{ color: "#c4b5fd", fontSize: "20px", marginBottom: "16px" }}>Web · Android · Games | Office + AI · Laser Engraving · Design</p>
+          <p style={{ color: "#9ca3af", maxWidth: "600px", margin: "0 auto 32px" }}>I build web apps, Android apps, and games. I also streamline office work with AI tools and create precision laser engraving designs.</p>
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
             <a href="/Umair_CV.pdf" download style={{ padding: "10px 24px", backgroundColor: "#a855f7", borderRadius: "999px", textDecoration: "none", color: "white", display: "flex", alignItems: "center", gap: "8px" }}>
               <Download size={16} /> Download CV
             </a>
-            <a href="#contact" style={{ padding: "10px 24px", backgroundColor: "#1f2937", borderRadius: "999px", textDecoration: "none", color: "white", display: "flex", alignItems: "center", gap: "8px" }}>
-              <Mail size={16} /> Contact Me
-            </a>
+            <button onClick={openWhatsApp} style={{ padding: "10px 24px", backgroundColor: "#25D366", borderRadius: "999px", border: "none", color: "white", display: "flex", alignItems: "center", gap: "8px", cursor: "pointer", fontWeight: "bold", animation: "pulse 1.5s ease-in-out infinite" }}>
+              <Send size={16} /> WhatsApp Me
+            </button>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" style={{ padding: "80px 20px", backgroundColor: "rgba(0,0,0,0.5)", textAlign: "center" }}>
+      <section id="about" style={{ padding: "80px 20px", backgroundColor: "rgba(0,0,0,0.3)", textAlign: "center" }}>
         <div style={{ maxWidth: "800px", margin: "0 auto" }}>
           <h2 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "24px", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
             About Me
@@ -125,7 +149,7 @@ export default function Home() {
               { emoji: "🧠", text: "Fast learner & multi-tool problem solver" },
               { emoji: "📅", text: "Deadline-driven with clean documentation" }
             ].map((item, i) => (
-              <div key={i} style={{ padding: "16px", backgroundColor: "rgba(17,24,39,0.5)", borderRadius: "12px", border: "1px solid rgba(168,85,247,0.2)" }}>
+              <div key={i} style={{ padding: "16px", backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "12px", border: "1px solid rgba(168,85,247,0.3)", backdropFilter: "blur(5px)" }}>
                 <span style={{ fontSize: "32px" }}>{item.emoji}</span>
                 <p style={{ fontSize: "14px", color: "#9ca3af", marginTop: "8px" }}>{item.text}</p>
               </div>
@@ -147,7 +171,7 @@ export default function Home() {
                 <span style={{ fontWeight: "bold" }}>{skill.name}</span>
                 <span style={{ marginLeft: "auto", color: "#a855f7" }}>{skill.level}%</span>
               </div>
-              <div style={{ height: "8px", backgroundColor: "#1f2937", borderRadius: "999px", overflow: "hidden" }}>
+              <div style={{ height: "8px", backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "999px", overflow: "hidden" }}>
                 <div style={{
                   width: `${skill.level}%`,
                   height: "100%",
@@ -162,8 +186,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Tech Stack Icons Box */}
+      <section id="tech" style={{ padding: "80px 20px", backgroundColor: "rgba(0,0,0,0.3)", textAlign: "center" }}>
+        <h2 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "48px", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+          My Tech Stack
+        </h2>
+        <div style={{ maxWidth: "800px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))", gap: "24px", padding: "32px", backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "20px", border: "1px solid rgba(168,85,247,0.3)", backdropFilter: "blur(10px)" }}>
+          {techStack.map((tech, i) => (
+            <div key={i} style={{ textAlign: "center", padding: "16px", transition: "transform 0.3s" }} onMouseEnter={e => e.currentTarget.style.transform = "scale(1.05)"} onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
+              <tech.icon size={48} style={{ color: "#a855f7", marginBottom: "8px" }} />
+              <p style={{ fontSize: "14px", color: "#d1d5db" }}>{tech.name}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* What I Do */}
-      <section style={{ padding: "80px 20px", backgroundColor: "rgba(0,0,0,0.5)", textAlign: "center" }}>
+      <section style={{ padding: "80px 20px", textAlign: "center" }}>
         <h2 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "48px", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
           What I Do
         </h2>
@@ -173,10 +212,10 @@ export default function Home() {
             { title: "Android Apps", desc: "Native & no-code apps", icon: Smartphone },
             { title: "Game Development", desc: "2D/3D games with Unity, Godot", icon: Gamepad2 },
             { title: "AI Automation", desc: "AI-assisted smarter workflows", icon: Bot },
-            { title: "Laser Engraving", desc: "Wood, acrylic, metal, leather", icon: Paintbrush },
-            { title: "Design & Prepress", desc: "CorelDRAW, Photoshop", icon: FileText }
+            { title: "Laser Engraving", desc: "Wood, acrylic, metal, leather", icon: Lightbulb },
+            { title: "Design & Prepress", desc: "CorelDRAW, Photoshop", icon: Paintbrush }
           ].map((item, i) => (
-            <div key={i} style={{ padding: "24px", backgroundColor: "rgba(17,24,39,0.5)", borderRadius: "12px", border: "1px solid rgba(168,85,247,0.2)", textAlign: "left" }}>
+            <div key={i} style={{ padding: "24px", backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "12px", border: "1px solid rgba(168,85,247,0.3)", backdropFilter: "blur(5px)", textAlign: "left" }}>
               <item.icon size={40} style={{ color: "#a855f7", marginBottom: "16px" }} />
               <h3 style={{ fontSize: "20px", fontWeight: "bold", marginBottom: "8px" }}>{item.title}</h3>
               <p style={{ color: "#9ca3af", fontSize: "14px" }}>{item.desc}</p>
@@ -186,7 +225,7 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section id="projects" style={{ padding: "80px 20px", textAlign: "center" }}>
+      <section id="projects" style={{ padding: "80px 20px", backgroundColor: "rgba(0,0,0,0.3)", textAlign: "center" }}>
         <h2 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "48px", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
           Featured Projects
         </h2>
@@ -197,7 +236,7 @@ export default function Home() {
             { title: "AI Dashboard", desc: "Smart dashboard with AI insights", tech: "Web + Tailwind" },
             { title: "Custom Engraving Designs", desc: "Precision engraving with ZE CAD", tech: "ZE CAD + CorelDRAW" }
           ].map((project, i) => (
-            <div key={i} style={{ padding: "24px", backgroundColor: "rgba(17,24,39,0.5)", borderRadius: "12px", border: "1px solid rgba(168,85,247,0.2)", textAlign: "left" }}>
+            <div key={i} style={{ padding: "24px", backgroundColor: "rgba(255,255,255,0.05)", borderRadius: "12px", border: "1px solid rgba(168,85,247,0.3)", backdropFilter: "blur(5px)", textAlign: "left" }}>
               <h3 style={{ fontSize: "18px", fontWeight: "bold", marginBottom: "8px" }}>{project.title}</h3>
               <p style={{ color: "#9ca3af", fontSize: "14px", marginBottom: "12px" }}>{project.desc}</p>
               <span style={{ color: "#a855f7", fontSize: "12px" }}>{project.tech}</span>
@@ -207,7 +246,7 @@ export default function Home() {
       </section>
 
       {/* Experience with Glowing Timeline Line */}
-      <section id="experience" style={{ padding: "80px 20px", backgroundColor: "rgba(0,0,0,0.5)", textAlign: "center" }}>
+      <section id="experience" style={{ padding: "80px 20px", textAlign: "center" }}>
         <h2 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "48px", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
           Experience
         </h2>
@@ -219,7 +258,7 @@ export default function Home() {
             { period: "2019 – 2021", title: "Designer & Laser Specialist", desc: "Graphic design & laser engraving with ZE CAD" }
           ].map((exp, i) => (
             <div key={i} style={{ position: "relative", paddingLeft: "48px", marginBottom: "48px", textAlign: "left" }}>
-              <div style={{ position: "absolute", left: "8px", top: "8px", width: "12px", height: "12px", backgroundColor: "#a855f7", borderRadius: "50%", border: "2px solid black", boxShadow: "0 0 8px #a855f7" }} />
+              <div style={{ position: "absolute", left: "8px", top: "8px", width: "12px", height: "12px", backgroundColor: "#a855f7", borderRadius: "50%", border: "2px solid rgba(0,0,0,0.5)", boxShadow: "0 0 8px #a855f7" }} />
               <span style={{ color: "#a855f7", fontSize: "14px" }}>{exp.period}</span>
               <h3 style={{ fontSize: "20px", fontWeight: "bold", marginTop: "4px", marginBottom: "8px" }}>{exp.title}</h3>
               <p style={{ color: "#9ca3af", fontSize: "14px" }}>{exp.desc}</p>
@@ -229,7 +268,7 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section id="contact" style={{ padding: "80px 20px", textAlign: "center" }}>
+      <section id="contact" style={{ padding: "80px 20px", backgroundColor: "rgba(0,0,0,0.3)", textAlign: "center" }}>
         <h2 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "16px", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
           Let's Work Together
         </h2>
@@ -239,21 +278,26 @@ export default function Home() {
           <a href="tel:03099988810" style={{ display: "flex", alignItems: "center", gap: "8px", color: "#9ca3af", textDecoration: "none" }}><Phone size={16} /> 03099988810</a>
           <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#9ca3af" }}><MapPin size={16} /> Pakistan</div>
         </div>
-        <a href="https://github.com/hellj504-a" target="_blank" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "10px 24px", backgroundColor: "#1f2937", borderRadius: "999px", textDecoration: "none", color: "white" }}>
-          <Github size={16} /> Visit GitHub →
-        </a>
+        <div style={{ display: "flex", justifyContent: "center", gap: "16px", flexWrap: "wrap" }}>
+          <a href="https://github.com/hellj504-a" target="_blank" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "10px 24px", backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "999px", textDecoration: "none", color: "white" }}>
+            <Github size={16} /> GitHub
+          </a>
+          <button onClick={openWhatsApp} style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "10px 24px", backgroundColor: "#25D366", borderRadius: "999px", border: "none", color: "white", cursor: "pointer", fontWeight: "bold" }}>
+            <Send size={16} /> WhatsApp
+          </button>
+        </div>
       </section>
 
       {/* Footer */}
-      <footer style={{ padding: "24px", textAlign: "center", borderTop: "1px solid #1f2937", color: "#6b7280", fontSize: "14px" }}>
+      <footer style={{ padding: "24px", textAlign: "center", borderTop: "1px solid rgba(255,255,255,0.1)", color: "#6b7280", fontSize: "14px" }}>
         © 2025 Muhammad Umair. All rights reserved.
       </footer>
 
       <style>{`
         @keyframes pulse {
-          0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.95); }
-          50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.08); }
-          100% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.95); }
+          0% { transform: scale(1); opacity: 0.7; }
+          50% { transform: scale(1.05); opacity: 1; }
+          100% { transform: scale(1); opacity: 0.7; }
         }
         @keyframes glowPulse {
           0% { opacity: 0.5; }
