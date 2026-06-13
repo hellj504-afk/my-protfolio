@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, Mail, Phone, MapPin, Github, Code2, Smartphone, Gamepad2, Bot, Paintbrush, FileText, Layers, Server, Globe, Zap, Cpu, Send, Award, TrendingUp, Shield, X, Printer, Briefcase, GraduationCap, Calendar } from "lucide-react";
+import { Download, Mail, Phone, MapPin, Github, Code2, Smartphone, Gamepad2, Bot, Paintbrush, FileText, Layers, Server, Globe, Zap, Cpu, Send, Award, TrendingUp, Shield, X, Briefcase, Calendar } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -47,6 +47,16 @@ export default function Home() {
     { name: "Android Studio", icon: Smartphone },
     { name: "Flutter", icon: Smartphone },
   ];
+
+  // PDF download handler
+  const downloadPDF = () => {
+    const link = document.createElement('a');
+    link.href = '/Umair_CV.pdf';
+    link.download = 'Umair_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <div style={{ position: "relative", minHeight: "100vh" }}>
@@ -136,7 +146,7 @@ export default function Home() {
 
             <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
               <button onClick={() => setShowCV(true)} style={{ padding: "12px 28px", backgroundColor: "#a855f7", borderRadius: "999px", border: "none", color: "white", display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }}>
-                <Download size={18} /> View / Print CV
+                <Download size={18} /> View / Download CV
               </button>
               <button onClick={openWhatsApp} style={{ padding: "12px 28px", backgroundColor: "#25D366", borderRadius: "999px", border: "none", color: "white", display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }}>
                 <Send size={18} /> WhatsApp Me
@@ -300,7 +310,7 @@ export default function Home() {
         </footer>
       </div>
 
-      {/* CV Popup Modal - Professional CV Design */}
+      {/* CV Popup Modal - Glass Transparent */}
       {showCV && (
         <div style={{
           position: "fixed",
@@ -308,8 +318,8 @@ export default function Home() {
           left: 0,
           width: "100%",
           height: "100%",
-          background: "linear-gradient(135deg, rgba(10,10,42,0.95), rgba(45,27,78,0.95))",
-          backdropFilter: "blur(10px)",
+          background: "rgba(0,0,0,0.6)",
+          backdropFilter: "blur(8px)",
           zIndex: 1000,
           display: "flex",
           alignItems: "center",
@@ -321,25 +331,26 @@ export default function Home() {
           <div style={{
             width: "100%",
             maxWidth: "800px",
-            background: "linear-gradient(135deg, #ffffff, #f5f0ff)",
+            background: "rgba(255,255,255,0.12)",
+            backdropFilter: "blur(20px)",
             borderRadius: "32px",
             padding: "40px",
             position: "relative",
             animation: "slideUp 0.4s ease-in-out",
             maxHeight: "90vh",
             overflowY: "auto",
-            boxShadow: "0 0 50px rgba(168,85,247,0.4)",
-            border: "1px solid rgba(168,85,247,0.3)"
+            boxShadow: "0 0 50px rgba(168,85,247,0.3)",
+            border: "1px solid rgba(255,255,255,0.2)"
           }}>
             <button onClick={() => setShowCV(false)} style={{
               position: "sticky",
               top: "0",
               float: "right",
-              background: "rgba(168,85,247,0.1)",
+              background: "rgba(255,255,255,0.2)",
               border: "none",
               fontSize: "24px",
               cursor: "pointer",
-              color: "#a855f7",
+              color: "white",
               width: "36px",
               height: "36px",
               borderRadius: "50%",
@@ -353,37 +364,37 @@ export default function Home() {
             {/* CV Header */}
             <div style={{ textAlign: "center", marginBottom: "32px" }}>
               <div style={{ display: "flex", justifyContent: "center", marginBottom: "16px" }}>
-                <img src="/profile.png" alt="Muhammad Umair" style={{ width: "120px", height: "120px", borderRadius: "50%", border: "4px solid #a855f7", boxShadow: "0 0 30px rgba(168,85,247,0.3)" }} />
+                <img src="/profile.png" alt="Muhammad Umair" style={{ width: "120px", height: "120px", borderRadius: "50%", border: "4px solid #a855f7", boxShadow: "0 0 30px rgba(168,85,247,0.5)" }} />
               </div>
-              <h1 style={{ color: "#1a1a2e", fontSize: "36px", marginBottom: "8px", fontWeight: "bold" }}>MUHAMMAD UMAIR</h1>
-              <p style={{ color: "#a855f7", fontSize: "18px", fontWeight: "600", marginBottom: "16px" }}>Full Stack Developer · AI/ML Engineer · Game Architect</p>
-              <div style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap", background: "rgba(168,85,247,0.1)", padding: "12px 20px", borderRadius: "40px" }}>
-                <span style={{ color: "#444", fontSize: "14px" }}>📞 03099988810</span>
-                <span style={{ color: "#444", fontSize: "14px" }}>📧 jeeumair698@gmail.com</span>
-                <span style={{ color: "#444", fontSize: "14px" }}>📍 Lahore, Pakistan</span>
-                <span style={{ color: "#444", fontSize: "14px" }}>💼 4+ Years Experience</span>
+              <h1 style={{ color: "white", fontSize: "36px", marginBottom: "8px", fontWeight: "bold" }}>MUHAMMAD UMAIR</h1>
+              <p style={{ color: "#c4b5fd", fontSize: "18px", fontWeight: "600", marginBottom: "16px" }}>Full Stack Developer · AI/ML Engineer · Game Architect</p>
+              <div style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap", background: "rgba(255,255,255,0.1)", padding: "12px 20px", borderRadius: "40px" }}>
+                <span style={{ color: "#ddd", fontSize: "14px" }}>📞 03099988810</span>
+                <span style={{ color: "#ddd", fontSize: "14px" }}>📧 jeeumair698@gmail.com</span>
+                <span style={{ color: "#ddd", fontSize: "14px" }}>📍 Lahore, Pakistan</span>
+                <span style={{ color: "#ddd", fontSize: "14px" }}>💼 4+ Years Experience</span>
               </div>
             </div>
             
-            {/* About / Professional Summary */}
+            {/* Professional Summary */}
             <div style={{ marginBottom: "28px" }}>
-              <h3 style={{ color: "#1a1a2e", borderLeft: "4px solid #a855f7", paddingLeft: "12px", marginBottom: "16px", fontSize: "20px" }}>📋 Professional Summary</h3>
-              <p style={{ color: "#444", fontSize: "14px", lineHeight: "1.6", textAlign: "justify" }}>
+              <h3 style={{ color: "white", borderLeft: "4px solid #a855f7", paddingLeft: "12px", marginBottom: "16px", fontSize: "20px" }}>📋 Professional Summary</h3>
+              <p style={{ color: "#ddd", fontSize: "14px", lineHeight: "1.6", textAlign: "justify" }}>
                 Passionate Full Stack Developer with 4+ years of experience building scalable web applications, Android apps, and interactive games. Specialized in AI-powered workflows, blockchain integration, and high-precision laser engraving. Delivering quality-driven solutions under pressure with rapid adaptability.
               </p>
             </div>
             
             {/* Work Experience */}
             <div style={{ marginBottom: "28px" }}>
-              <h3 style={{ color: "#1a1a2e", borderLeft: "4px solid #a855f7", paddingLeft: "12px", marginBottom: "16px", fontSize: "20px" }}>💼 Work Experience</h3>
+              <h3 style={{ color: "white", borderLeft: "4px solid #a855f7", paddingLeft: "12px", marginBottom: "16px", fontSize: "20px" }}>💼 Work Experience</h3>
               
               <div style={{ marginBottom: "20px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", marginBottom: "6px" }}>
-                  <h4 style={{ color: "#1a1a2e", fontSize: "16px", fontWeight: "bold" }}>Senior Full Stack Developer</h4>
-                  <span style={{ color: "#a855f7", fontSize: "13px" }}>2023 – Present</span>
+                  <h4 style={{ color: "white", fontSize: "16px", fontWeight: "bold" }}>Senior Full Stack Developer</h4>
+                  <span style={{ color: "#c4b5fd", fontSize: "13px" }}>2023 – Present</span>
                 </div>
-                <p style={{ color: "#666", fontSize: "13px", marginBottom: "8px" }}>Freelance / Remote · Lahore, Pakistan</p>
-                <ul style={{ color: "#555", fontSize: "13px", paddingLeft: "20px", lineHeight: "1.5" }}>
+                <p style={{ color: "#bbb", fontSize: "13px", marginBottom: "8px" }}>Freelance / Remote · Lahore, Pakistan</p>
+                <ul style={{ color: "#ccc", fontSize: "13px", paddingLeft: "20px", lineHeight: "1.5" }}>
                   <li>Building scalable web apps using Next.js, React, Node.js</li>
                   <li>Integrating AI APIs (OpenAI, Gemini) and automation workflows</li>
                   <li>Developing Android apps with Flutter & Android Studio</li>
@@ -392,11 +403,11 @@ export default function Home() {
               
               <div style={{ marginBottom: "20px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", marginBottom: "6px" }}>
-                  <h4 style={{ color: "#1a1a2e", fontSize: "16px", fontWeight: "bold" }}>Game & App Developer</h4>
-                  <span style={{ color: "#a855f7", fontSize: "13px" }}>2021 – 2023</span>
+                  <h4 style={{ color: "white", fontSize: "16px", fontWeight: "bold" }}>Game & App Developer</h4>
+                  <span style={{ color: "#c4b5fd", fontSize: "13px" }}>2021 – 2023</span>
                 </div>
-                <p style={{ color: "#666", fontSize: "13px", marginBottom: "8px" }}>Freelance · Lahore, Pakistan</p>
-                <ul style={{ color: "#555", fontSize: "13px", paddingLeft: "20px", lineHeight: "1.5" }}>
+                <p style={{ color: "#bbb", fontSize: "13px", marginBottom: "8px" }}>Freelance · Lahore, Pakistan</p>
+                <ul style={{ color: "#ccc", fontSize: "13px", paddingLeft: "20px", lineHeight: "1.5" }}>
                   <li>Developed 15+ interactive games and mobile applications</li>
                   <li>Implemented multiplayer systems and leaderboards</li>
                   <li>Published apps on Google Play Store</li>
@@ -405,11 +416,11 @@ export default function Home() {
               
               <div style={{ marginBottom: "20px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", marginBottom: "6px" }}>
-                  <h4 style={{ color: "#1a1a2e", fontSize: "16px", fontWeight: "bold" }}>Design & Laser Engraving Specialist</h4>
-                  <span style={{ color: "#a855f7", fontSize: "13px" }}>2019 – 2021</span>
+                  <h4 style={{ color: "white", fontSize: "16px", fontWeight: "bold" }}>Design & Laser Engraving Specialist</h4>
+                  <span style={{ color: "#c4b5fd", fontSize: "13px" }}>2019 – 2021</span>
                 </div>
-                <p style={{ color: "#666", fontSize: "13px", marginBottom: "8px" }}>PAK ELEKTRON LIMITED · Lahore, Pakistan</p>
-                <ul style={{ color: "#555", fontSize: "13px", paddingLeft: "20px", lineHeight: "1.5" }}>
+                <p style={{ color: "#bbb", fontSize: "13px", marginBottom: "8px" }}>PAK ELEKTRON LIMITED · Lahore, Pakistan</p>
+                <ul style={{ color: "#ccc", fontSize: "13px", paddingLeft: "20px", lineHeight: "1.5" }}>
                   <li>Expert in precision laser engraving on wood, acrylic, metal</li>
                   <li>Created 500+ designs using CorelDRAW, Photoshop & ZE CAD</li>
                   <li>Managed Oracle ERP for job completion & inventory</li>
@@ -419,39 +430,39 @@ export default function Home() {
             
             {/* Technical Skills */}
             <div style={{ marginBottom: "28px" }}>
-              <h3 style={{ color: "#1a1a2e", borderLeft: "4px solid #a855f7", paddingLeft: "12px", marginBottom: "16px", fontSize: "20px" }}>🛠️ Technical Skills</h3>
+              <h3 style={{ color: "white", borderLeft: "4px solid #a855f7", paddingLeft: "12px", marginBottom: "16px", fontSize: "20px" }}>🛠️ Technical Skills</h3>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
                 {["HTML/CSS", "JavaScript", "React", "Node.js", "Python", "Flutter", "Unity", "Godot", "Android Studio", "CorelDRAW", "Photoshop", "ZE CAD", "AI Automation", "Git/GitHub"].map(skill => (
-                  <span key={skill} style={{ background: "linear-gradient(135deg, #f3e8ff, #e9d5ff)", color: "#6b21a5", padding: "6px 16px", borderRadius: "30px", fontSize: "13px", fontWeight: "500" }}>{skill}</span>
+                  <span key={skill} style={{ background: "rgba(168,85,247,0.2)", color: "#c4b5fd", padding: "6px 16px", borderRadius: "30px", fontSize: "13px", fontWeight: "500", border: "1px solid rgba(168,85,247,0.3)" }}>{skill}</span>
                 ))}
               </div>
             </div>
             
             {/* Professional Excellence */}
             <div style={{ marginBottom: "28px" }}>
-              <h3 style={{ color: "#1a1a2e", borderLeft: "4px solid #a855f7", paddingLeft: "12px", marginBottom: "16px", fontSize: "20px" }}>🏆 Professional Excellence</h3>
+              <h3 style={{ color: "white", borderLeft: "4px solid #a855f7", paddingLeft: "12px", marginBottom: "16px", fontSize: "20px" }}>🏆 Professional Excellence</h3>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "12px" }}>
-                <div style={{ background: "#f8f4ff", padding: "12px", borderRadius: "12px", textAlign: "center" }}>
+                <div style={{ background: "rgba(255,255,255,0.08)", padding: "12px", borderRadius: "12px", textAlign: "center" }}>
                   <span style={{ fontSize: "24px" }}>⚡</span>
-                  <p style={{ color: "#555", fontSize: "12px", marginTop: "6px" }}>Works under pressure without compromising quality</p>
+                  <p style={{ color: "#ddd", fontSize: "12px", marginTop: "6px" }}>Works under pressure without compromising quality</p>
                 </div>
-                <div style={{ background: "#f8f4ff", padding: "12px", borderRadius: "12px", textAlign: "center" }}>
+                <div style={{ background: "rgba(255,255,255,0.08)", padding: "12px", borderRadius: "12px", textAlign: "center" }}>
                   <span style={{ fontSize: "24px" }}>🧠</span>
-                  <p style={{ color: "#555", fontSize: "12px", marginTop: "6px" }}>Fast learner & multi-tool problem solver</p>
+                  <p style={{ color: "#ddd", fontSize: "12px", marginTop: "6px" }}>Fast learner & multi-tool problem solver</p>
                 </div>
-                <div style={{ background: "#f8f4ff", padding: "12px", borderRadius: "12px", textAlign: "center" }}>
+                <div style={{ background: "rgba(255,255,255,0.08)", padding: "12px", borderRadius: "12px", textAlign: "center" }}>
                   <span style={{ fontSize: "24px" }}>📅</span>
-                  <p style={{ color: "#555", fontSize: "12px", marginTop: "6px" }}>Deadline-driven with clean documentation</p>
+                  <p style={{ color: "#ddd", fontSize: "12px", marginTop: "6px" }}>Deadline-driven with clean documentation</p>
                 </div>
               </div>
             </div>
             
-            {/* Print Button */}
+            {/* Download PDF Button */}
             <div style={{ display: "flex", gap: "16px", justifyContent: "center", marginTop: "32px" }}>
-              <button onClick={() => window.print()} style={{ padding: "14px 32px", background: "linear-gradient(135deg, #a855f7, #ec4899)", border: "none", borderRadius: "50px", color: "white", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px", fontWeight: "bold", fontSize: "16px" }}>
-                <Printer size={20} /> Print / Save as PDF
+              <button onClick={downloadPDF} style={{ padding: "14px 32px", background: "linear-gradient(135deg, #a855f7, #ec4899)", border: "none", borderRadius: "50px", color: "white", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px", fontWeight: "bold", fontSize: "16px" }}>
+                <Download size={20} /> Download PDF
               </button>
-              <button onClick={() => setShowCV(false)} style={{ padding: "14px 32px", backgroundColor: "#333", border: "none", borderRadius: "50px", color: "white", cursor: "pointer", fontSize: "16px" }}>
+              <button onClick={() => setShowCV(false)} style={{ padding: "14px 32px", backgroundColor: "rgba(255,255,255,0.2)", border: "none", borderRadius: "50px", color: "white", cursor: "pointer", fontSize: "16px" }}>
                 Close
               </button>
             </div>
@@ -472,20 +483,6 @@ export default function Home() {
         @keyframes slideUp {
           from { transform: translateY(50px); opacity: 0; }
           to { transform: translateY(0); opacity: 1; }
-        }
-        @media print {
-          body * {
-            visibility: hidden;
-          }
-          .cv-print, .cv-print * {
-            visibility: visible;
-          }
-          .cv-print {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-          }
         }
       `}</style>
     </div>
