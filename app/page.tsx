@@ -27,7 +27,7 @@ export default function Home() {
     { name: "CorelDRAW", level: 95, icon: Paintbrush },
     { name: "Photoshop", level: 90, icon: Paintbrush },
     { name: "Excel + AI", level: 88, icon: FileText },
-    { name: "EZ CAD", level: 92, icon: Zap },
+    { name: "ZE CAD", level: 92, icon: Zap },
     { name: "PowerPoint", level: 85, icon: FileText },
     { name: "Python", level: 85, icon: Code2 },
     { name: "Node.js", level: 82, icon: Server },
@@ -79,6 +79,7 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Hero Section */}
       <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "80px 20px 40px" }}>
         <div>
           <div style={{ display: "flex", justifyContent: "center", marginBottom: "24px" }}>
@@ -88,11 +89,28 @@ export default function Home() {
             MUHAMMAD UMAIR
           </h1>
           <p style={{ color: "#c4b5fd", fontSize: "22px", marginBottom: "12px", fontWeight: "500" }}>
-            Full Stack Developer · AI/ML Engineer · Game Architect
+            Full Stack Developer · AI/ML Engineer · Game Architect · Laser Expert
           </p>
-          <p style={{ color: "#9ca3af", maxWidth: "700px", margin: "0 auto 32px", fontSize: "16px" }}>
-            4+ years of experience in building scalable web applications, Android apps, and interactive games.
-          </p>
+
+          {/* Intro Glowing Box */}
+          <div style={{
+            maxWidth: "800px",
+            margin: "32px auto",
+            padding: "24px 32px",
+            background: "rgba(255,255,255,0.03)",
+            backdropFilter: "blur(10px)",
+            borderRadius: "20px",
+            border: "1px solid rgba(168,85,247,0.4)",
+            boxShadow: "0 0 30px rgba(168,85,247,0.2)",
+            animation: "glowPulse 2s ease-in-out infinite"
+          }}>
+            <p style={{ color: "#d1d5db", fontSize: "16px", lineHeight: "1.6" }}>
+              4+ years of experience in building scalable web applications, Android apps, and interactive games. 
+              Specialized in AI-powered workflows, blockchain integration, and high-precision laser engraving. 
+              Delivering quality-driven solutions under pressure with rapid adaptability.
+            </p>
+          </div>
+
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
             <a href="/Umair_CV.pdf" download style={{ padding: "12px 28px", backgroundColor: "#a855f7", borderRadius: "999px", textDecoration: "none", color: "white", display: "flex", alignItems: "center", gap: "8px" }}>
               <Download size={18} /> Download CV
@@ -104,10 +122,34 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="skills" style={{ padding: "80px 20px", backgroundColor: "rgba(0,0,0,0.3)" }}>
-        <h2 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "48px", textAlign: "center", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-          Technical Skills
+      {/* Quality Commitment Boxes */}
+      <section id="about" style={{ padding: "80px 20px", backgroundColor: "rgba(0,0,0,0.3)" }}>
+        <div style={{ maxWidth: "1000px", margin: "0 auto", textAlign: "center" }}>
+          <h2 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "48px", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+            Professional Excellence
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
+            {[
+              { icon: Award, title: "Quality Commitment", text: "Works under pressure without compromising quality standards" },
+              { icon: TrendingUp, title: "Rapid Adaptability", text: "Fast learner & multi-tool problem solver with agile mindset" },
+              { icon: Shield, title: "Deadline Assurance", text: "Deadline-driven with clean documentation and reliable delivery" }
+            ].map((item, i) => (
+              <div key={i} style={{ padding: "28px", background: "rgba(255,255,255,0.05)", borderRadius: "20px", border: "1px solid rgba(168,85,247,0.3)", backdropFilter: "blur(5px)" }}>
+                <item.icon size={48} style={{ color: "#a855f7", marginBottom: "16px", margin: "0 auto 16px auto" }} />
+                <h3 style={{ fontSize: "20px", fontWeight: "bold", marginBottom: "12px" }}>{item.title}</h3>
+                <p style={{ fontSize: "14px", color: "#9ca3af", lineHeight: "1.5" }}>{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section with Glowing Progress Bar */}
+      <section id="skills" style={{ padding: "80px 20px" }}>
+        <h2 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "16px", textAlign: "center", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+          Technical Expertise
         </h2>
+        <p style={{ color: "#9ca3af", marginBottom: "48px", textAlign: "center" }}>80%+ Proficiency Across All Domains</p>
         <div style={{ maxWidth: "1000px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "32px" }}>
           {skills.map((skill, i) => (
             <div key={i}>
@@ -116,15 +158,23 @@ export default function Home() {
                 <span>{skill.name}</span>
                 <span style={{ marginLeft: "auto", color: "#a855f7" }}>{skill.level}%</span>
               </div>
-              <div style={{ height: "8px", backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "999px", overflow: "hidden" }}>
-                <div style={{ width: `${skill.level}%`, height: "100%", background: "linear-gradient(90deg, #a855f7, #ec4899)", borderRadius: "999px" }} />
+              <div style={{ height: "10px", backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "999px", overflow: "hidden" }}>
+                <div style={{
+                  width: `${skill.level}%`,
+                  height: "100%",
+                  background: "linear-gradient(90deg, #a855f7, #ec4899)",
+                  borderRadius: "999px",
+                  boxShadow: "0 0 12px #a855f7",
+                  animation: "glowPulse 1.5s ease-in-out infinite"
+                }} />
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="tech" style={{ padding: "80px 20px" }}>
+      {/* Tech Stack Box */}
+      <section id="tech" style={{ padding: "80px 20px", backgroundColor: "rgba(0,0,0,0.3)" }}>
         <h2 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "48px", textAlign: "center", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
           Tech Stack
         </h2>
@@ -138,32 +188,78 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="experience" style={{ padding: "80px 20px", backgroundColor: "rgba(0,0,0,0.3)" }}>
+      {/* What I Do */}
+      <section style={{ padding: "80px 20px" }}>
         <h2 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "48px", textAlign: "center", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-          Experience
+          What I Do
         </h2>
-        <div style={{ maxWidth: "800px", margin: "0 auto", position: "relative" }}>
-          <div style={{ position: "absolute", left: "16px", top: 0, bottom: 0, width: "3px", background: "#a855f7", boxShadow: "0 0 10px #a855f7" }} />
+        <div style={{ maxWidth: "1000px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
           {[
-            { period: "2023 – Present", title: "Senior Full Stack Developer", desc: "Leading full-stack development & AI integration" },
-            { period: "2021 – 2023", title: "Game & App Developer", desc: "Developed 15+ games & apps" },
-            { period: "2019 – 2021", title: "Design & Laser Specialist", desc: "Precision laser engraving expert" }
-          ].map((exp, i) => (
-            <div key={i} style={{ position: "relative", paddingLeft: "48px", marginBottom: "48px" }}>
-              <div style={{ position: "absolute", left: "8px", top: "8px", width: "14px", height: "14px", backgroundColor: "#a855f7", borderRadius: "50%" }} />
-              <span style={{ color: "#a855f7", fontSize: "14px" }}>{exp.period}</span>
-              <h3 style={{ fontSize: "20px", fontWeight: "bold", marginTop: "6px" }}>{exp.title}</h3>
-              <p style={{ color: "#9ca3af" }}>{exp.desc}</p>
+            { title: "Web Development", desc: "Scalable full-stack apps with Next.js, React & Node.js", icon: Code2 },
+            { title: "Android Apps", desc: "Native Java/Kotlin & cross-platform Flutter apps", icon: Smartphone },
+            { title: "Game Development", desc: "2D/3D immersive games with Unity & Godot", icon: Gamepad2 },
+            { title: "AI Automation", desc: "Intelligent workflows using LLMs and RAG pipelines", icon: Bot },
+            { title: "Laser Engraving", desc: "High-precision designs on wood, acrylic, metal, leather", icon: Zap },
+            { title: "Design & Prepress", desc: "Professional vector graphics with CorelDRAW & Photoshop", icon: Paintbrush }
+          ].map((item, i) => (
+            <div key={i} style={{ padding: "24px", background: "rgba(255,255,255,0.05)", borderRadius: "16px", border: "1px solid rgba(168,85,247,0.2)" }}>
+              <item.icon size={40} style={{ color: "#a855f7", marginBottom: "16px" }} />
+              <h3 style={{ fontSize: "20px", fontWeight: "bold", marginBottom: "8px" }}>{item.title}</h3>
+              <p style={{ color: "#9ca3af", fontSize: "14px" }}>{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="contact" style={{ padding: "80px 20px", textAlign: "center" }}>
+      {/* Projects */}
+      <section id="projects" style={{ padding: "80px 20px", backgroundColor: "rgba(0,0,0,0.3)" }}>
+        <h2 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "48px", textAlign: "center", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+          Featured Projects
+        </h2>
+        <div style={{ maxWidth: "1000px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "24px" }}>
+          {[
+            { title: "Multiplayer Racing Game", desc: "Real-time multiplayer racing with chat & leaderboard", tech: "Unity + C#" },
+            { title: "Task Manager App", desc: "Productivity app for Android with task categories", tech: "Android + Java" },
+            { title: "AI Dashboard", desc: "Smart dashboard with AI insights & Excel analysis", tech: "Web + Tailwind + Python" },
+            { title: "Custom Engraving Designs", desc: "Precision vector engravings with ZE CAD", tech: "ZE CAD + CorelDRAW" }
+          ].map((project, i) => (
+            <div key={i} style={{ padding: "24px", background: "rgba(255,255,255,0.05)", borderRadius: "16px", border: "1px solid rgba(168,85,247,0.2)" }}>
+              <h3 style={{ fontSize: "18px", fontWeight: "bold", marginBottom: "8px" }}>{project.title}</h3>
+              <p style={{ color: "#9ca3af", fontSize: "14px", marginBottom: "12px" }}>{project.desc}</p>
+              <span style={{ color: "#a855f7", fontSize: "12px" }}>{project.tech}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Experience with Glowing Timeline */}
+      <section id="experience" style={{ padding: "80px 20px" }}>
+        <h2 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "48px", textAlign: "center", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+          Professional Journey
+        </h2>
+        <div style={{ maxWidth: "800px", margin: "0 auto", position: "relative" }}>
+          <div style={{ position: "absolute", left: "16px", top: 0, bottom: 0, width: "3px", background: "#a855f7", boxShadow: "0 0 15px #a855f7", animation: "glowPulse 2s ease-in-out infinite" }} />
+          {[
+            { period: "2023 – Present", title: "Senior Full Stack Developer", desc: "Leading full-stack development & AI integration for enterprise clients" },
+            { period: "2021 – 2023", title: "Game & App Developer", desc: "Developed 15+ games & apps using Unity, Godot, Flutter & Android Studio" },
+            { period: "2019 – 2021", title: "Design & Laser Specialist", desc: "Mastered precision laser engraving, CorelDRAW & Photoshop workflows" }
+          ].map((exp, i) => (
+            <div key={i} style={{ position: "relative", paddingLeft: "48px", marginBottom: "48px" }}>
+              <div style={{ position: "absolute", left: "8px", top: "8px", width: "14px", height: "14px", backgroundColor: "#a855f7", borderRadius: "50%", border: "2px solid black", boxShadow: "0 0 10px #a855f7", animation: "glowPulse 1.5s ease-in-out infinite" }} />
+              <span style={{ color: "#a855f7", fontSize: "14px", fontWeight: "600" }}>{exp.period}</span>
+              <h3 style={{ fontSize: "20px", fontWeight: "bold", marginTop: "6px", marginBottom: "8px" }}>{exp.title}</h3>
+              <p style={{ color: "#9ca3af", fontSize: "14px" }}>{exp.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" style={{ padding: "80px 20px", backgroundColor: "rgba(0,0,0,0.3)", textAlign: "center" }}>
         <h2 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "16px", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
           Let's Work Together
         </h2>
-        <p style={{ color: "#9ca3af", marginBottom: "32px" }}>Available for freelance, contract, or full-time opportunities.</p>
+        <p style={{ color: "#9ca3af", marginBottom: "32px" }}>Available for freelance, contract, or full-time opportunities worldwide.</p>
         <div style={{ display: "flex", justifyContent: "center", gap: "28px", flexWrap: "wrap", marginBottom: "32px" }}>
           <a href="mailto:jeeumair698@gmail.com" style={{ color: "#d1d5db", textDecoration: "none" }}>jeeumair698@gmail.com</a>
           <a href="tel:03099988810" style={{ color: "#d1d5db", textDecoration: "none" }}>03099988810</a>
@@ -177,6 +273,14 @@ export default function Home() {
       <footer style={{ padding: "28px", textAlign: "center", borderTop: "1px solid rgba(255,255,255,0.1)", color: "#6b7280" }}>
         © 2025 Muhammad Umair. All rights reserved.
       </footer>
+
+      <style>{`
+        @keyframes glowPulse {
+          0% { opacity: 0.5; box-shadow: 0 0 5px #a855f7; }
+          50% { opacity: 1; box-shadow: 0 0 20px #a855f7; }
+          100% { opacity: 0.5; box-shadow: 0 0 5px #a855f7; }
+        }
+      `}</style>
     </div>
   );
 }
