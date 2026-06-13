@@ -14,7 +14,7 @@ export default function Home() {
   }, []);
 
   const openWhatsApp = () => {
-    window.open("https://wa.me/92309988810", "_blank");
+    window.open("https://wa.me/923099988810", "_blank");
   };
 
   const skills = [
@@ -28,7 +28,7 @@ export default function Home() {
     { name: "CorelDRAW", level: 95, icon: Paintbrush },
     { name: "Photoshop", level: 90, icon: Paintbrush },
     { name: "Excel + AI", level: 88, icon: FileText },
-    { name: "ZE CAD", level: 92, icon: Zap },
+    { name: "EZ CAD", level: 92, icon: Zap },
     { name: "PowerPoint", level: 85, icon: FileText },
     { name: "Python", level: 85, icon: Code2 },
     { name: "Node.js", level: 82, icon: Server },
