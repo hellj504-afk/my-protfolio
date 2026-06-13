@@ -22,7 +22,7 @@ export default function Home() {
     { name: "Flutter", level: 80, icon: Smartphone },
     { name: "Unity/C#", level: 85, icon: Gamepad2 },
     { name: "Godot", level: 80, icon: Gamepad2 },
-    { name: "JavaScript", level: 88, icon: Code2 },
+    { name: "JavaScript", level: 88, icon: Globe },
     { name: "AI Automation", level: 85, icon: Bot },
     { name: "CorelDRAW", level: 95, icon: Paintbrush },
     { name: "Photoshop", level: 90, icon: Paintbrush },
