@@ -1,6 +1,6 @@
- "use client";
-"v2" 
-import { Download, Mail, Phone, MapPin, Github, Code2, Smartphone, Gamepad2, Bot, Paintbrush, FileText, ExternalLink } from "lucide-react";
+"use client";
+
+import { Download, Mail, Phone, MapPin, Github, Code2, Smartphone, Gamepad2, Bot, Paintbrush, FileText } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -12,9 +12,46 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const skills = [
+    { name: "HTML/CSS", level: 90, icon: Code2 },
+    { name: "Android Studio", level: 85, icon: Smartphone },
+    { name: "Flutter", level: 80, icon: Smartphone },
+    { name: "Unity/C#", level: 85, icon: Gamepad2 },
+    { name: "Godot", level: 80, icon: Gamepad2 },
+    { name: "JavaScript", level: 88, icon: Code2 },
+    { name: "AI Automation", level: 85, icon: Bot },
+    { name: "CorelDRAW", level: 95, icon: Paintbrush },
+    { name: "Photoshop", level: 90, icon: Paintbrush },
+    { name: "Excel + AI", level: 88, icon: FileText },
+    { name: "ZE CAD", level: 92, icon: Code2 },
+    { name: "PowerPoint", level: 85, icon: FileText },
+  ];
+
+  const services = [
+    { title: "Web Development", desc: "Responsive websites with modern UI/UX", icon: Code2 },
+    { title: "Android Apps", desc: "Native & no-code apps", icon: Smartphone },
+    { title: "Game Development", desc: "2D/3D games with Unity, Godot", icon: Gamepad2 },
+    { title: "AI Automation", desc: "AI-assisted smarter workflows", icon: Bot },
+    { title: "Laser Engraving", desc: "Wood, acrylic, metal, leather", icon: Paintbrush },
+    { title: "Design & Prepress", desc: "CorelDRAW, Photoshop", icon: FileText },
+  ];
+
+  const projects = [
+    { title: "Multiplayer Racing Game", desc: "Real-time racing with chat & leaderboard", tech: "Unity + C#" },
+    { title: "Task Manager App", desc: "Productivity app for Android", tech: "Android + Java" },
+    { title: "AI Dashboard", desc: "Smart dashboard with AI insights", tech: "Web + Tailwind" },
+    { title: "Custom Engraving Designs", desc: "Precision engraving with ZE CAD", tech: "ZE CAD + CorelDRAW" },
+  ];
+
+  const experiences = [
+    { period: "Present", title: "Freelance Developer & Designer", desc: "Building web, mobile apps, games, AI solutions & laser engraving" },
+    { period: "2021 – 2023", title: "Game Developer", desc: "2D/3D games with Unity & Godot, multiplayer & leaderboards" },
+    { period: "2019 – 2021", title: "Designer & Laser Specialist", desc: "Graphic design & laser engraving with ZE CAD" },
+  ];
+
   return (
     <div style={{ backgroundColor: "black", color: "white", fontFamily: "sans-serif" }}>
-      
+
       {/* Header */}
       <header style={{
         position: "fixed",
@@ -26,11 +63,11 @@ export default function Home() {
         borderBottom: isScrolled ? "1px solid rgba(139,92,246,0.2)" : "none",
         transition: "all 0.3s"
       }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "16px" }}>
           <span style={{ fontSize: "20px", fontWeight: "bold", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
             MUHAMMAD UMAIR
           </span>
-          <div style={{ display: "flex", gap: "24px" }}>
+          <div style={{ display: "flex", gap: "24px", flexWrap: "wrap" }}>
             {["About", "Skills", "Projects", "Experience", "Contact"].map(item => (
               <a key={item} href={`#${item.toLowerCase()}`} style={{ color: "#d1d5db", textDecoration: "none" }} onMouseEnter={e => e.currentTarget.style.color = "#a855f7"} onMouseLeave={e => e.currentTarget.style.color = "#d1d5db"}>
                 {item}
@@ -43,19 +80,42 @@ export default function Home() {
       {/* Hero Section */}
       <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "80px 20px 40px" }}>
         <div>
-          {/* Profile Pic - No transparent box */}
-          <div style={{ display: "flex", justifyContent: "center", marginBottom: "24px" }}>
-            <img 
-              src="/profile.png" 
-              alt="Muhammad Umair" 
+          {/* Profile Pic with Ring Behind - Fixed */}
+          <div style={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "24px",
+            position: "relative",
+            width: "160px",
+            height: "160px",
+            margin: "0 auto 24px auto"
+          }}>
+            {/* Glowing Ring Behind */}
+            <div style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: "180px",
+              height: "180px",
+              borderRadius: "50%",
+              background: "radial-gradient(circle, rgba(168,85,247,0.3) 0%, rgba(168,85,247,0) 70%)",
+              animation: "pulse 2s ease-in-out infinite",
+              pointerEvents: "none"
+            }} />
+            {/* Profile Image */}
+            <img
+              src="/profile.png"
+              alt="Muhammad Umair"
               style={{
                 width: "160px",
                 height: "160px",
                 borderRadius: "50%",
                 objectFit: "cover",
-                border: "4px solid #a855f7",
-                boxShadow: "0 0 20px rgba(168,85,247,0.4)",
-                animation: "pulse 2s infinite"
+                border: "3px solid #a855f7",
+                position: "relative",
+                zIndex: 1,
+                backgroundColor: "black"
               }}
             />
           </div>
@@ -64,7 +124,7 @@ export default function Home() {
           </h1>
           <p style={{ color: "#9ca3af", fontSize: "20px", marginBottom: "16px" }}>Web · Android · Games | Office + AI · Laser Engraving · Design</p>
           <p style={{ color: "#6b7280", maxWidth: "600px", margin: "0 auto 32px" }}>I build web apps, Android apps, and games. I also streamline office work with AI tools and create precision laser engraving designs.</p>
-          <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
+          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
             <a href="/Umair_CV.pdf" download style={{ padding: "10px 24px", backgroundColor: "#a855f7", borderRadius: "999px", textDecoration: "none", color: "white", display: "flex", alignItems: "center", gap: "8px" }}>
               <Download size={16} /> Download CV
             </a>
@@ -97,21 +157,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills Section */}
+      {/* Skills Section with Glowing Progress Bar */}
       <section id="skills" style={{ padding: "80px 20px", textAlign: "center" }}>
         <h2 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "48px", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-          My Skills
+          My Skills (80%+ Expertise)
         </h2>
-        <div style={{ maxWidth: "1000px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))", gap: "24px" }}>
-          {[
-            { name: "HTML/CSS", icon: Code2 }, { name: "Android", icon: Smartphone }, { name: "Flutter", icon: Smartphone },
-            { name: "Unity", icon: Gamepad2 }, { name: "Godot", icon: Gamepad2 }, { name: "JavaScript", icon: Code2 },
-            { name: "AI Auto", icon: Bot }, { name: "CorelDRAW", icon: Paintbrush }, { name: "Photoshop", icon: Paintbrush },
-            { name: "Excel", icon: FileText }, { name: "ZE CAD", icon: Code2 }, { name: "PowerPoint", icon: FileText }
-          ].map((skill, i) => (
-            <div key={i} style={{ padding: "16px", backgroundColor: "rgba(17,24,39,0.5)", borderRadius: "12px", border: "1px solid rgba(168,85,247,0.2)" }}>
-              <skill.icon size={32} style={{ margin: "0 auto 8px", color: "#a855f7" }} />
-              <p style={{ fontSize: "12px", color: "#9ca3af" }}>{skill.name}</p>
+        <div style={{ maxWidth: "1000px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "32px" }}>
+          {skills.map((skill, i) => (
+            <div key={i} style={{ textAlign: "left" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "8px" }}>
+                <skill.icon size={24} style={{ color: "#a855f7" }} />
+                <span style={{ fontWeight: "bold" }}>{skill.name}</span>
+                <span style={{ marginLeft: "auto", color: "#a855f7" }}>{skill.level}%</span>
+              </div>
+              <div style={{ height: "8px", backgroundColor: "#1f2937", borderRadius: "999px", overflow: "hidden" }}>
+                <div style={{
+                  width: `${skill.level}%`,
+                  height: "100%",
+                  background: "linear-gradient(90deg, #a855f7, #ec4899)",
+                  borderRadius: "999px",
+                  boxShadow: "0 0 10px #a855f7",
+                  animation: "glowPulse 1.5s ease-in-out infinite"
+                }} />
+              </div>
             </div>
           ))}
         </div>
@@ -123,14 +191,7 @@ export default function Home() {
           What I Do
         </h2>
         <div style={{ maxWidth: "1000px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
-          {[
-            { title: "Web Development", desc: "Responsive websites with modern UI/UX and animations.", icon: Code2 },
-            { title: "Android App Dev", desc: "Native & no-code apps using Android Studio & MIT App Inventor.", icon: Smartphone },
-            { title: "Game Development", desc: "2D/3D games using Unity, Godot & Flutter.", icon: Gamepad2 },
-            { title: "AI Integration", desc: "AI-assisted solutions for smarter & faster workflows.", icon: Bot },
-            { title: "Laser Engraving", desc: "Precision engraving on wood, acrylic, leather, metal.", icon: Paintbrush },
-            { title: "Design & Prepress", desc: "CorelDRAW, Photoshop for vector designs.", icon: FileText }
-          ].map((item, i) => (
+          {services.map((item, i) => (
             <div key={i} style={{ padding: "24px", backgroundColor: "rgba(17,24,39,0.5)", borderRadius: "12px", border: "1px solid rgba(168,85,247,0.2)", textAlign: "left" }}>
               <item.icon size={40} style={{ color: "#a855f7", marginBottom: "16px" }} />
               <h3 style={{ fontSize: "20px", fontWeight: "bold", marginBottom: "8px" }}>{item.title}</h3>
@@ -146,12 +207,7 @@ export default function Home() {
           Featured Projects
         </h2>
         <div style={{ maxWidth: "1000px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "24px" }}>
-          {[
-            { title: "Multiplayer Racing Game", desc: "Real-time multiplayer racing game with chat, leaderboard & rewards system.", tech: "Unity + C#" },
-            { title: "Task Manager App", desc: "Productivity app for Android to manage tasks, categories and daily progress.", tech: "Android + Java" },
-            { title: "AI Dashboard", desc: "Smart dashboard with AI insights, charts, reports & Excel data analysis.", tech: "Web + Tailwind" },
-            { title: "Custom Engraving Designs", desc: "Precision engraving on wood & acrylic using ZE CAD with perfect finishing.", tech: "ZE CAD + CorelDRAW" }
-          ].map((project, i) => (
+          {projects.map((project, i) => (
             <div key={i} style={{ padding: "24px", backgroundColor: "rgba(17,24,39,0.5)", borderRadius: "12px", border: "1px solid rgba(168,85,247,0.2)", textAlign: "left" }}>
               <h3 style={{ fontSize: "18px", fontWeight: "bold", marginBottom: "8px" }}>{project.title}</h3>
               <p style={{ color: "#9ca3af", fontSize: "14px", marginBottom: "12px" }}>{project.desc}</p>
@@ -167,14 +223,10 @@ export default function Home() {
           Experience
         </h2>
         <div style={{ maxWidth: "800px", margin: "0 auto", position: "relative" }}>
-          <div style={{ position: "absolute", left: "16px", top: 0, bottom: 0, width: "2px", background: "#a855f7", boxShadow: "0 0 10px #a855f7" }} />
-          {[
-            { period: "Present", title: "Freelance Developer & Designer", desc: "Building web & mobile applications, games, AI solutions, office automation tools and laser engraving designs." },
-            { period: "2021 – 2023", title: "Game Developer", desc: "Developed multiple 2D/3D games using Unity & Godot with multiplayer and leaderboard systems." },
-            { period: "2019 – 2021", title: "Designer & Laser Specialist", desc: "Worked on graphic design projects and operated laser engraving machines using ZE CAD." }
-          ].map((exp, i) => (
+          <div style={{ position: "absolute", left: "16px", top: 0, bottom: 0, width: "2px", background: "#a855f7", boxShadow: "0 0 10px #a855f7", animation: "glowPulse 2s ease-in-out infinite" }} />
+          {experiences.map((exp, i) => (
             <div key={i} style={{ position: "relative", paddingLeft: "48px", marginBottom: "48px", textAlign: "left" }}>
-              <div style={{ position: "absolute", left: "8px", top: "8px", width: "12px", height: "12px", backgroundColor: "#a855f7", borderRadius: "50%", border: "2px solid black" }} />
+              <div style={{ position: "absolute", left: "8px", top: "8px", width: "12px", height: "12px", backgroundColor: "#a855f7", borderRadius: "50%", border: "2px solid black", boxShadow: "0 0 8px #a855f7" }} />
               <span style={{ color: "#a855f7", fontSize: "14px" }}>{exp.period}</span>
               <h3 style={{ fontSize: "20px", fontWeight: "bold", marginTop: "4px", marginBottom: "8px" }}>{exp.title}</h3>
               <p style={{ color: "#9ca3af", fontSize: "14px" }}>{exp.desc}</p>
@@ -204,12 +256,17 @@ export default function Home() {
         © 2025 Muhammad Umair. All rights reserved.
       </footer>
 
-      {/* Keyframes for animation */}
+      {/* Keyframes for animations */}
       <style>{`
         @keyframes pulse {
-          0% { box-shadow: 0 0 0 0 rgba(168,85,247,0.4); }
-          70% { box-shadow: 0 0 0 15px rgba(168,85,247,0); }
-          100% { box-shadow: 0 0 0 0 rgba(168,85,247,0); }
+          0% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.95); }
+          50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.05); }
+          100% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.95); }
+        }
+        @keyframes glowPulse {
+          0% { opacity: 0.6; }
+          50% { opacity: 1; }
+          100% { opacity: 0.6; }
         }
       `}</style>
     </div>
