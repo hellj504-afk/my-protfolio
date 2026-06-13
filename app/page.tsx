@@ -71,7 +71,7 @@ export default function Home() {
         left: 0,
         width: "100%",
         height: "100%",
-        backgroundColor: "rgba(0,0,0,0.7)",
+        backgroundColor: "rgba(0,0,0,0.75)",
         zIndex: 1
       }} />
 
@@ -127,7 +127,7 @@ export default function Home() {
               boxShadow: "0 0 30px rgba(168,85,247,0.2)",
               animation: "glowPulse 2s ease-in-out infinite"
             }}>
-              <p style={{ color: "#d1d5db", fontSize: "16px", lineHeight: "1.6" }}>
+              <p style={{ color: "#ffffff", fontSize: "16px", lineHeight: "1.6" }}>
                 4+ years of experience in building scalable web applications, Android apps, and interactive games. 
                 Specialized in AI-powered workflows, blockchain integration, and high-precision laser engraving. 
                 Delivering quality-driven solutions under pressure with rapid adaptability.
@@ -159,8 +159,8 @@ export default function Home() {
               ].map((item, i) => (
                 <div key={i} style={{ padding: "28px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(10px)", borderRadius: "20px", border: "1px solid rgba(168,85,247,0.3)" }}>
                   <item.icon size={48} style={{ color: "#a855f7", marginBottom: "16px", margin: "0 auto 16px auto" }} />
-                  <h3 style={{ fontSize: "20px", fontWeight: "bold", marginBottom: "12px" }}>{item.title}</h3>
-                  <p style={{ fontSize: "14px", color: "#9ca3af", lineHeight: "1.5" }}>{item.text}</p>
+                  <h3 style={{ fontSize: "20px", fontWeight: "bold", marginBottom: "12px", color: "#ffffff" }}>{item.title}</h3>
+                  <p style={{ fontSize: "14px", color: "#d1d5db", lineHeight: "1.5" }}>{item.text}</p>
                 </div>
               ))}
             </div>
@@ -172,13 +172,13 @@ export default function Home() {
           <h2 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "16px", textAlign: "center", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
             Technical Expertise
           </h2>
-          <p style={{ color: "#9ca3af", marginBottom: "48px", textAlign: "center" }}>80%+ Proficiency Across All Domains</p>
+          <p style={{ color: "#d1d5db", marginBottom: "48px", textAlign: "center" }}>80%+ Proficiency Across All Domains</p>
           <div style={{ maxWidth: "1000px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "32px" }}>
             {skills.map((skill, i) => (
               <div key={i}>
                 <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "8px" }}>
                   <skill.icon size={24} style={{ color: "#a855f7" }} />
-                  <span>{skill.name}</span>
+                  <span style={{ color: "#ffffff" }}>{skill.name}</span>
                   <span style={{ marginLeft: "auto", color: "#a855f7" }}>{skill.level}%</span>
                 </div>
                 <div style={{ height: "10px", backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "999px", overflow: "hidden" }}>
@@ -205,7 +205,7 @@ export default function Home() {
             {techStack.map((tech, i) => (
               <div key={i} style={{ textAlign: "center", padding: "16px" }}>
                 <tech.icon size={48} style={{ color: "#a855f7", marginBottom: "8px" }} />
-                <p style={{ fontSize: "13px", color: "#d1d5db" }}>{tech.name}</p>
+                <p style={{ fontSize: "13px", color: "#ffffff" }}>{tech.name}</p>
               </div>
             ))}
           </div>
@@ -227,8 +227,8 @@ export default function Home() {
             ].map((item, i) => (
               <div key={i} style={{ padding: "24px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(10px)", borderRadius: "16px", border: "1px solid rgba(168,85,247,0.2)" }}>
                 <item.icon size={40} style={{ color: "#a855f7", marginBottom: "16px" }} />
-                <h3 style={{ fontSize: "20px", fontWeight: "bold", marginBottom: "8px" }}>{item.title}</h3>
-                <p style={{ color: "#9ca3af", fontSize: "14px" }}>{item.desc}</p>
+                <h3 style={{ fontSize: "20px", fontWeight: "bold", marginBottom: "8px", color: "#ffffff" }}>{item.title}</h3>
+                <p style={{ color: "#d1d5db", fontSize: "14px" }}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -247,8 +247,8 @@ export default function Home() {
               { title: "Custom Engraving Designs", desc: "Precision vector engravings with ZE CAD", tech: "ZE CAD + CorelDRAW" }
             ].map((project, i) => (
               <div key={i} style={{ padding: "24px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(10px)", borderRadius: "16px", border: "1px solid rgba(168,85,247,0.2)" }}>
-                <h3 style={{ fontSize: "18px", fontWeight: "bold", marginBottom: "8px" }}>{project.title}</h3>
-                <p style={{ color: "#9ca3af", fontSize: "14px", marginBottom: "12px" }}>{project.desc}</p>
+                <h3 style={{ fontSize: "18px", fontWeight: "bold", marginBottom: "8px", color: "#ffffff" }}>{project.title}</h3>
+                <p style={{ color: "#d1d5db", fontSize: "14px", marginBottom: "12px" }}>{project.desc}</p>
                 <span style={{ color: "#a855f7", fontSize: "12px" }}>{project.tech}</span>
               </div>
             ))}
@@ -270,8 +270,8 @@ export default function Home() {
               <div key={i} style={{ position: "relative", paddingLeft: "48px", marginBottom: "48px" }}>
                 <div style={{ position: "absolute", left: "8px", top: "8px", width: "14px", height: "14px", backgroundColor: "#a855f7", borderRadius: "50%", border: "2px solid black", boxShadow: "0 0 10px #a855f7", animation: "glowPulse 1.5s ease-in-out infinite" }} />
                 <span style={{ color: "#a855f7", fontSize: "14px", fontWeight: "600" }}>{exp.period}</span>
-                <h3 style={{ fontSize: "20px", fontWeight: "bold", marginTop: "6px", marginBottom: "8px" }}>{exp.title}</h3>
-                <p style={{ color: "#9ca3af", fontSize: "14px" }}>{exp.desc}</p>
+                <h3 style={{ fontSize: "20px", fontWeight: "bold", marginTop: "6px", marginBottom: "8px", color: "#ffffff" }}>{exp.title}</h3>
+                <p style={{ color: "#d1d5db", fontSize: "14px" }}>{exp.desc}</p>
               </div>
             ))}
           </div>
@@ -283,11 +283,11 @@ export default function Home() {
             <h2 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "16px", background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               Let's Work Together
             </h2>
-            <p style={{ color: "#9ca3af", marginBottom: "32px" }}>Available for freelance, contract, or full-time opportunities worldwide.</p>
+            <p style={{ color: "#d1d5db", marginBottom: "32px" }}>Available for freelance, contract, or full-time opportunities worldwide.</p>
             <div style={{ display: "flex", justifyContent: "center", gap: "28px", flexWrap: "wrap", marginBottom: "32px" }}>
-              <a href="mailto:jeeumair698@gmail.com" style={{ color: "#d1d5db", textDecoration: "none" }}>jeeumair698@gmail.com</a>
-              <a href="tel:03099988810" style={{ color: "#d1d5db", textDecoration: "none" }}>03099988810</a>
-              <span>Pakistan</span>
+              <a href="mailto:jeeumair698@gmail.com" style={{ color: "#ffffff", textDecoration: "none" }}>jeeumair698@gmail.com</a>
+              <a href="tel:03099988810" style={{ color: "#ffffff", textDecoration: "none" }}>03099988810</a>
+              <span style={{ color: "#ffffff" }}>Pakistan</span>
             </div>
             <a href="https://github.com/hellj504-a" target="_blank" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 28px", backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "999px", textDecoration: "none", color: "white" }}>
               <Github size={18} /> GitHub
@@ -295,7 +295,7 @@ export default function Home() {
           </div>
         </section>
 
-        <footer style={{ padding: "28px", textAlign: "center", borderTop: "1px solid rgba(255,255,255,0.1)", color: "#6b7280" }}>
+        <footer style={{ padding: "28px", textAlign: "center", borderTop: "1px solid rgba(255,255,255,0.1)", color: "#9ca3af" }}>
           © 2025 Muhammad Umair. All rights reserved.
         </footer>
       </div>
