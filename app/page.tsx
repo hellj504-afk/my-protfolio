@@ -1,21 +1,7 @@
-import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
-import { Skills } from "@/components/sections/Skills";
-import { WhatIDo } from "@/components/sections/WhatIDo";
-import { Projects } from "@/components/sections/Projects";
-import { Experience } from "@/components/sections/Experience";
-import { Contact } from "@/components/sections/Contact";
-
 export default function Home() {
   return (
-    <main>
-      <Hero />
-      <About />
-      <Skills />
-      <WhatIDo />
-      <Projects />
-      <Experience />
-      <Contact />
+    <main style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'black', color: 'white' }}>
+      <h1>Hello, I'm Muhammad Umair</h1>
     </main>
   );
 }
