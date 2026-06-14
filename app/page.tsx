@@ -254,7 +254,7 @@ export default function Home() {
               { title: "Multiplayer Racing Game", desc: "Real-time multiplayer racing with chat & leaderboard", tech: "Unity + C#" },
               { title: "Task Manager App", desc: "Productivity app for Android with task categories", tech: "Android + Java" },
               { title: "AI Dashboard", desc: "Smart dashboard with AI insights & Excel analysis", tech: "Web + Tailwind + Python" },
-              { title: "Custom Engraving Designs", desc: "Precision vector engravings with ZE CAD", tech: "ZE CAD + CorelDRAW" }
+              { title: "Custom Engraving Designs", desc: "Precision vector engravings with EZ CAD", tech: "EZ CAD + CorelDRAW" }
             ].map((project, i) => (
               <div key={i} style={{ padding: "24px", background: "rgba(0,0,0,0.5)", backdropFilter: "blur(10px)", borderRadius: "16px", border: "1px solid rgba(168,85,247,0.2)" }}>
                 <h3 style={{ fontSize: "18px", fontWeight: "bold", marginBottom: "8px", color: "#ffffff" }}>{project.title}</h3>
@@ -299,14 +299,14 @@ export default function Home() {
               <a href="tel:03099988810" style={{ color: "#ffffff", textDecoration: "none" }}>03099988810</a>
               <span style={{ color: "#ffffff" }}>Pakistan</span>
             </div>
-            <a href="https://github.com/hellj504-a" target="_blank" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 28px", backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "999px", textDecoration: "none", color: "white" }}>
+            <a href="https://github.com/hellj504-afk" target="_blank" style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 28px", backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "999px", textDecoration: "none", color: "white" }}>
               <Github size={18} /> GitHub
             </a>
           </div>
         </section>
 
         <footer style={{ padding: "28px", textAlign: "center", borderTop: "1px solid rgba(255,255,255,0.1)", color: "#9ca3af" }}>
-          © 2025 Muhammad Umair. All rights reserved.
+          © 2026 Muhammad Umair. All rights reserved.
         </footer>
       </div>
 
@@ -410,7 +410,7 @@ export default function Home() {
                 <ul style={{ color: "#ccc", fontSize: "13px", paddingLeft: "20px", lineHeight: "1.5" }}>
                   <li>Developed 15+ interactive games and mobile applications</li>
                   <li>Implemented multiplayer systems and leaderboards</li>
-                  <li>Published apps on Google Play Store</li>
+                  <li>Published apps</li>
                 </ul>
               </div>
               
@@ -422,7 +422,7 @@ export default function Home() {
                 <p style={{ color: "#bbb", fontSize: "13px", marginBottom: "8px" }}>PAK ELEKTRON LIMITED · Lahore, Pakistan</p>
                 <ul style={{ color: "#ccc", fontSize: "13px", paddingLeft: "20px", lineHeight: "1.5" }}>
                   <li>Expert in precision laser engraving on wood, acrylic, metal</li>
-                  <li>Created 500+ designs using CorelDRAW, Photoshop & ZE CAD</li>
+                  <li>Created 500+ designs using CorelDRAW, Photoshop & EZ CAD</li>
                   <li>Managed Oracle ERP for job completion & inventory</li>
                 </ul>
               </div>
